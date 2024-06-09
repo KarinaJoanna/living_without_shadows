@@ -23,7 +23,7 @@ class QuestionnaireSection extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: Row(
                     children: [
-                      Image.asset('assets/questionnaire.png', width: 100),
+                      Image.asset('assets/questionnarie.png', width: 100),
                       SizedBox(width: 10),
                       Expanded(
                         child: Column(

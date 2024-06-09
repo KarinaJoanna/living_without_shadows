@@ -23,7 +23,7 @@ class TalkAboutDepressionSection extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: Row(
                     children: [
-                      Image.asset('assets/talk2.png', width: 100),
+                      Image.asset('assets/talk1.png', width: 100),
                       SizedBox(width: 10),
                       Expanded(
                         child: Column(

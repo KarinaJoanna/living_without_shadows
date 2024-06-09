@@ -23,7 +23,7 @@ class EmpoweringKnowledgeSection extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: Row(
                     children: [
-                      Image.asset('assets/knowledge1.png', width: 100),
+                      Image.asset('assets/empowering.png', width: 100),
                       SizedBox(width: 10),
                       Expanded(
                         child: Column(
