@@ -11,12 +11,39 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: _isSmallScreen(context) ? DrawerMenu() : null,
       appBar: _isSmallScreen(context)
           ? AppBar(
               title: Text('Living Without Shadows'),
             )
-          : null,
+          : AppBar(
+              title: Text('Living Without Shadows'),
+              actions: [
+                TextButton(
+                  onPressed: () {},
+                  child: Text('About'),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text('Questionnaire'),
+                ),
+                TextButton(
+                  onPressed: () {},
+                  child: Text('Information'),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: Text('Let\'s Chat'),
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.orange,
+                    backgroundColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+      drawer: _isSmallScreen(context) ? DrawerMenu() : null,
       body: SingleChildScrollView(
         child: Column(
           children: [
