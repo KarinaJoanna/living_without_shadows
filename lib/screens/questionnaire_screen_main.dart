@@ -7,10 +7,10 @@ class QuestionnaireMain extends StatelessWidget {
     return Scaffold(
       appBar: _isSmallScreen(context)
           ? AppBar(
-              title: Text('Living Without Shadows'),
+              title: Text('Questionnaire'),
             )
           : AppBar(
-              title: Text('Living Without Shadows'),
+              title: Text('Questionnaire'),
               actions: [
                 TextButton(
                   onPressed: () {},
