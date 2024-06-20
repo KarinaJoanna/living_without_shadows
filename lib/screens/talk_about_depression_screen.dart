@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:living_without_shadows/screens/chat_screen.dart';
+import 'package:living_without_shadows/screens/questionnaire_screen.dart';
 import 'package:living_without_shadows/widgets/header_section.dart';
 import '../widgets/footer_section.dart';
-import '../widgets/header_widget.dart';
 
 class TalkAboutDepressionScreen extends StatelessWidget {
   @override
@@ -9,25 +10,32 @@ class TalkAboutDepressionScreen extends StatelessWidget {
     return Scaffold(
       appBar: _isSmallScreen(context)
           ? AppBar(
-              title: Text('Talking About Depression'),
+              title: Text('Living Without Shadows'),
             )
           : AppBar(
-              title: Text('Talking About Depression'),
+              title: Text('Living Without Shadows'),
               actions: [
                 TextButton(
                   onPressed: () {},
                   child: Text('About'),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => QuestionnaireScreen()),
+                    );
+                  },
                   child: Text('Questionnaire'),
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text('Information'),
-                ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ChatScreen()),
+                    );
+                  },
                   child: Text('Let\'s Chat'),
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.orange,
@@ -43,9 +51,29 @@ class TalkAboutDepressionScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            HeaderWidget(
-              title: 'Talking About Depression',
-              subtitle: 'Living without shadows',
+            Card(
+              margin: EdgeInsets.all(20),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: Container(
+                width: _getCardWidth(context),
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  children: [
+                    Text(
+                      'Talking About Depression',
+                      style: TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xFFb4d4f3),
+                      ),
+                    ),
+                    SizedBox(height: 10),
+                    Image.asset('assets/qsection.jpg', height: 300),
+                  ],
+                ),
+              ),
             ),
             SizedBox(height: 10),
             if (!_isSmallScreen(context)) HeaderSection(),

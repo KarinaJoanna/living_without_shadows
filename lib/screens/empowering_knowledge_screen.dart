@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:living_without_shadows/screens/chat_screen.dart';
+import 'package:living_without_shadows/screens/questionnaire_screen.dart';
 import 'package:living_without_shadows/widgets/header_section.dart';
 import '../widgets/footer_section.dart';
 
@@ -8,25 +10,32 @@ class EmpoweringKnowledgeScreen extends StatelessWidget {
     return Scaffold(
       appBar: _isSmallScreen(context)
           ? AppBar(
-              title: Text('Empowering Through Knowledge'),
+              title: Text('Living Without Shadows'),
             )
           : AppBar(
-              title: Text('Empowering Through Knowledge'),
+              title: Text('Living Without Shadows'),
               actions: [
                 TextButton(
                   onPressed: () {},
                   child: Text('About'),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => QuestionnaireScreen()),
+                    );
+                  },
                   child: Text('Questionnaire'),
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text('Information'),
-                ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ChatScreen()),
+                    );
+                  },
                   child: Text('Let\'s Chat'),
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.orange,
@@ -49,11 +58,28 @@ class EmpoweringKnowledgeScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Understanding Depression: Empowering Through Knowledge To Fulfill Our Mission',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
+                  Card(
+                    margin: EdgeInsets.all(20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Container(
+                      width: _getCardWidth(context),
+                      padding: EdgeInsets.all(20),
+                      child: Column(
+                        children: [
+                          Text(
+                            'Empowering Through Knowledge',
+                            style: TextStyle(
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold,
+                              color: Color(0xFFb4d4f3),
+                            ),
+                          ),
+                          SizedBox(height: 10),
+                          Image.asset('assets/qsection.jpg', height: 300),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(height: 20),
@@ -214,6 +240,17 @@ class EmpoweringKnowledgeScreen extends StatelessWidget {
 
   bool _isSmallScreen(BuildContext context) {
     return MediaQuery.of(context).size.width < 600;
+  }
+
+  double _getCardWidth(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    if (screenWidth < 600) {
+      return screenWidth * 0.9;
+    } else if (screenWidth < 1200) {
+      return screenWidth * 0.75;
+    } else {
+      return screenWidth * 0.5;
+    }
   }
 }
 

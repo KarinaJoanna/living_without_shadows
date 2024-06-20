@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:living_without_shadows/screens/chat_screen.dart';
+import 'package:living_without_shadows/screens/questionnaire_screen.dart';
+import 'package:living_without_shadows/screens/questionnaire_screen_main.dart';
 import '../widgets/header_section.dart';
 import '../widgets/questionnaire_section.dart';
 import '../widgets/talk_about_depression_section.dart';
@@ -23,15 +26,22 @@ class HomePage extends StatelessWidget {
                   child: Text('About'),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => QuestionnaireScreen()),
+                    );
+                  },
                   child: Text('Questionnaire'),
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text('Information'),
-                ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ChatScreen()),
+                    );
+                  },
                   child: Text('Let\'s Chat'),
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.orange,

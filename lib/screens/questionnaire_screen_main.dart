@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:living_without_shadows/screens/chat_screen.dart';
+import 'package:living_without_shadows/screens/questionnaire_screen.dart';
 import '../widgets/footer_section.dart';
 
 class QuestionnaireMain extends StatelessWidget {
@@ -7,25 +9,32 @@ class QuestionnaireMain extends StatelessWidget {
     return Scaffold(
       appBar: _isSmallScreen(context)
           ? AppBar(
-              title: Text('Questionnaire'),
+              title: Text('Living Without Shadows'),
             )
           : AppBar(
-              title: Text('Questionnaire'),
+              title: Text('Living Without Shadows'),
               actions: [
                 TextButton(
                   onPressed: () {},
                   child: Text('About'),
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => QuestionnaireScreen()),
+                    );
+                  },
                   child: Text('Questionnaire'),
                 ),
-                TextButton(
-                  onPressed: () {},
-                  child: Text('Information'),
-                ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => ChatScreen()),
+                    );
+                  },
                   child: Text('Let\'s Chat'),
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.orange,
