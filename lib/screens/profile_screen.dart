@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:living_without_shadows/widgets/bottom_nav_bar.dart';
 import '../models/close_circle_member.dart';
 import 'add_close_circle_member_screen.dart';
 import 'edit_profile_screen.dart';
@@ -120,6 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 }
