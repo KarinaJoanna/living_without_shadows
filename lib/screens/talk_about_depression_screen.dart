@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:living_without_shadows/screens/chat_screen.dart';
 import 'package:living_without_shadows/screens/questionnaire_screen.dart';
+import 'package:living_without_shadows/widgets/bottom_nav_bar.dart';
 import 'package:living_without_shadows/widgets/header_section.dart';
 import '../widgets/footer_section.dart';
 
@@ -114,6 +115,7 @@ class TalkAboutDepressionScreen extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 

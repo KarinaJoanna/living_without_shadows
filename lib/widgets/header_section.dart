@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 class HeaderSection extends StatelessWidget {
+  const HeaderSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 50.0, horizontal: 20.0),
-      child: Column(
+      padding: const EdgeInsets.symmetric(vertical: 50.0, horizontal: 20.0),
+      child: const Column(
         children: [
           Text(
             'Welcome to Living Without Shadows',

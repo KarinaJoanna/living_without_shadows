@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:living_without_shadows/screens/chat_screen.dart';
 import 'package:living_without_shadows/screens/questionnaire_screen.dart';
-import 'package:living_without_shadows/screens/questionnaire_screen_main.dart';
+import 'package:living_without_shadows/widgets/bottom_nav_bar.dart';
 import '../widgets/header_section.dart';
 import '../widgets/questionnaire_section.dart';
 import '../widgets/talk_about_depression_section.dart';
@@ -72,6 +72,7 @@ class HomePage extends StatelessWidget {
           ],
         ),
       ),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 

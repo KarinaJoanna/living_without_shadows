@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:living_without_shadows/screens/chat_screen.dart';
+import 'package:living_without_shadows/widgets/bottom_nav_bar.dart';
 import '../widgets/footer_section.dart';
 import 'questionnaire_screen_main.dart';
 
@@ -193,6 +194,7 @@ class QuestionnaireScreen extends StatelessWidget {
           ),
         ),
       ),
+      bottomNavigationBar: BottomNavBar(),
     );
   }
 
