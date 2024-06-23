@@ -8,39 +8,57 @@ class EditProfileScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Edit Profile'),
+        backgroundColor: Color.fromARGB(255, 237, 230, 241), // Asegúrate de usar tu color principal
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: ListView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            TextField(
-              decoration: const InputDecoration(
-                labelText: 'Username',
+            _buildTextField(label: 'Username'),
+            const SizedBox(height: 16),
+            _buildTextField(label: 'Email'),
+            const SizedBox(height: 16),
+            _buildTextField(label: 'Phone'),
+            const SizedBox(height: 16),
+            _buildTextField(label: 'Address'),
+            const Spacer(),
+            SizedBox(
+              width: double.infinity,
+              child: ElevatedButton(
+                onPressed: () {
+                  // Save profile changes
+                },
+                style: ElevatedButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: const Text(
+                  'Save',
+                  style: TextStyle(fontSize: 16),
+                ),
               ),
-            ),
-            TextField(
-              decoration: const InputDecoration(
-                labelText: 'Email',
-              ),
-            ),
-            TextField(
-              decoration: const InputDecoration(
-                labelText: 'Phone',
-              ),
-            ),
-            TextField(
-              decoration: const InputDecoration(
-                labelText: 'Address',
-              ),
-            ),
-            const SizedBox(height: 32),
-            ElevatedButton(
-              onPressed: () {
-                // Save profile changes
-              },
-              child: const Text('Save'),
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTextField({required String label}) {
+    return TextField(
+      decoration: InputDecoration(
+        labelText: label,
+        labelStyle: const TextStyle(color: Color.fromARGB(255, 84, 26, 125)), 
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
         ),
       ),
     );
