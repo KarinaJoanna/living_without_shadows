@@ -18,10 +18,22 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: _isSmallScreen(context)
           ? AppBar(
-              title: Text('Living Without Shadows'),
-            )
+              title: Text('Living Without Shadows',
+              textAlign: TextAlign.center,
+              style: TextStyle( 
+                fontWeight: FontWeight.bold,
+                color:  Color.fromARGB(255, 84, 26, 125),
+              ),
+            ),
+          )
           : AppBar(
-              title: Text('Living Without Shadows'),
+              title: Text('Living Without Shadows',
+              textAlign: TextAlign.center,
+              style: TextStyle( 
+                fontWeight: FontWeight.bold,
+                color:  Color.fromARGB(255, 84, 26, 125),
+              ),
+            ),
               actions: [
                 TextButton(
                   onPressed: () {},
