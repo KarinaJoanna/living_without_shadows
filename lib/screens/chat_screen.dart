@@ -10,8 +10,7 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   final List<Map<String, String>> _messages = [];
   final TextEditingController _controller = TextEditingController();
-  String _apiKey =
-      "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"; // API Key de OpenAI
+  String _apiKey = ""; // API Key de OpenAI
 
   Future<String> _fetchResponse(String prompt) async {
     final response = await http.post(
