@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:living_without_shadows/screens/chat_screen.dart';
 import 'package:living_without_shadows/widgets/bottom_nav_bar.dart';
+//import 'package:living_without_shadows/screens/home_page.dart';
+//import 'package:living_without_shadows/screens/talk_about_depression_screen.dart';
 import '../widgets/footer_section.dart';
 import 'questionnaire_screen_main.dart';
 
@@ -64,10 +66,11 @@ class QuestionnaireScreen extends StatelessWidget {
                     children: [
                       Text(
                         'Questionnaire',
-                        style: TextStyle(
-                          fontSize: 36,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFFb4d4f3),
+                        textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 36,
+                              fontWeight: FontWeight.bold,
+                              color: Color.fromARGB(255, 82, 43, 121),
                         ),
                       ),
                       SizedBox(height: 10),
@@ -170,22 +173,25 @@ class QuestionnaireScreen extends StatelessWidget {
                       textAlign: TextAlign.left,
                     ),
                     SizedBox(height: 20),
-                    ElevatedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => QuestionnaireMain()),
-                        );
-                      },
-                      child: Text('Start'),
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor: Colors.black,
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-                      ),
-                    ),
+                   Center(
+  child: ElevatedButton(
+    onPressed: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => QuestionnaireMain(),
+        ),
+      );
+    },
+    child: Text('Start'),
+    style: ElevatedButton.styleFrom(
+      foregroundColor: Colors.white,
+      backgroundColor: Color.fromARGB(255, 112, 0, 193),
+      padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+    ),
+  ),
+)
+
                   ],
                 ),
               ),
@@ -213,7 +219,6 @@ class QuestionnaireScreen extends StatelessWidget {
     }
   }
 }
-
 class DrawerMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
