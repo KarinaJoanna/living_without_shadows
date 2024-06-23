@@ -59,35 +59,47 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     'Profile1@example.com',
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.grey,
+                      color: Color.fromARGB(255, 84, 26, 125),
                     ),
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 32),
-            const ListTile(
-              leading: Icon(Icons.person),
-              title: Text('Username'),
-              subtitle: Text('Profile1'),
+            Card(
+              margin: const EdgeInsets.symmetric(vertical: 8),
+              child: ListTile(
+                leading: Icon(Icons.person, color: const Color.fromARGB(255, 115, 45, 148)),
+                title: Text('Username'),
+                subtitle: Text('Profile1'),
+              ),
             ),
-            const ListTile(
-              leading: Icon(Icons.email),
-              title: Text('Email'),
-              subtitle: Text('Profile1@example.com'),
+            Card(
+              margin: const EdgeInsets.symmetric(vertical: 8),
+              child: ListTile(
+                leading: Icon(Icons.email, color:Color.fromARGB(255, 115, 45, 148)),
+                title: Text('Email'),
+                subtitle: Text('Profile1@example.com'),
+              ),
             ),
-            const ListTile(
-              leading: Icon(Icons.phone),
-              title: Text('Phone'),
-              subtitle: Text('+1 234 567 890'),
+            Card(
+              margin: const EdgeInsets.symmetric(vertical: 8),
+              child: ListTile(
+                leading: Icon(Icons.phone, color:Color.fromARGB(255, 115, 45, 148)),
+                title: Text('Phone'),
+                subtitle: Text('+1 234 567 890'),
+              ),
             ),
-            const ListTile(
-              leading: Icon(Icons.location_on),
-              title: Text('Address'),
-              subtitle: Text('123'),
+            Card(
+              margin: const EdgeInsets.symmetric(vertical: 8),
+              child: ListTile(
+                leading: Icon(Icons.location_on, color:Color.fromARGB(255, 115, 45, 148)),
+                title: Text('Address'),
+                subtitle: Text('123'),
+              ),
             ),
             const SizedBox(height: 32),
-            ElevatedButton(
+            ElevatedButton.icon(
               onPressed: () {
                 // Navigate to edit profile screen
                 Navigator.push(
@@ -95,7 +107,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   MaterialPageRoute(builder: (context) => EditProfileScreen()),
                 );
               },
-              child: const Text('Edit Profile'),
+              icon: Icon(Icons.edit),
+              label: const Text('Edit Profile'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
             ),
             const SizedBox(height: 32),
             const Text(
@@ -106,17 +125,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ),
             ...closeCircle.map((member) {
-              return ListTile(
-                title: Text(member.name),
-                subtitle: Text(
-                    '${member.relationship}\n${member.email}\n${member.phone}'),
-                isThreeLine: true,
+              return Card(
+                margin: const EdgeInsets.symmetric(vertical: 8),
+                child: ListTile(
+                  title: Text(member.name),
+                  subtitle: Text(
+                      '${member.relationship}\n${member.email}\n${member.phone}'),
+                  isThreeLine: true,
+                ),
               );
             }).toList(),
             const SizedBox(height: 16),
-            ElevatedButton(
+            ElevatedButton.icon(
               onPressed: _addCloseCircleMember,
-              child: const Text('Add Close Circle Member'),
+              icon: Icon(Icons.add),
+              label: const Text('Add Close Circle Member'),
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+              ),
             ),
           ],
         ),
