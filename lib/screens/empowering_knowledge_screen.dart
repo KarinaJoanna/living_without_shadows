@@ -74,7 +74,7 @@ class EmpoweringKnowledgeScreen extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 36,
                               fontWeight: FontWeight.bold,
-                              color: Color(0xFFb4d4f3),
+                              color: Color.fromARGB(255, 82, 43, 121),
                             ),
                           ),
                           SizedBox(height: 10),
