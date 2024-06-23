@@ -71,17 +71,21 @@ class _AddCloseCircleMemberScreenState
                 width: _getCardWidth(context),
                 padding: EdgeInsets.all(20),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       'Your close circle members are important to you for your growth and well-being.',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFFb4d4f3),
+                        color: Color.fromARGB(255, 82, 43, 121),
                       ),
                     ),
                     SizedBox(height: 10),
-                    Image.asset('assets/empoweing.png'),
+                    Center(
+                      child: Image.asset('assets/empoweing.png', height: 150),
+                    ),
                   ],
                 ),
               ),
@@ -90,10 +94,22 @@ class _AddCloseCircleMemberScreenState
               child: Form(
                 key: _formKey,
                 child: ListView(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
                   children: <Widget>[
                     TextFormField(
                       controller: _nameController,
-                      decoration: const InputDecoration(labelText: 'Name'),
+                      decoration: InputDecoration(
+                        labelStyle: const TextStyle(color: Color.fromARGB(255, 84, 26, 125)), 
+                        labelText: 'Name',
+                        enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                        ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                        ),
+                      ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter a name';
@@ -101,9 +117,21 @@ class _AddCloseCircleMemberScreenState
                         return null;
                       },
                     ),
+                    SizedBox(height: 10),
                     TextFormField(
                       controller: _emailController,
-                      decoration: const InputDecoration(labelText: 'Email'),
+                      decoration: InputDecoration(
+                        labelStyle: const TextStyle(color: Color.fromARGB(255, 84, 26, 125)), 
+                        labelText: 'Email',
+                        enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                        ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                        ),
+                      ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter an email';
@@ -111,9 +139,21 @@ class _AddCloseCircleMemberScreenState
                         return null;
                       },
                     ),
+                    SizedBox(height: 10),
                     TextFormField(
                       controller: _phoneController,
-                      decoration: const InputDecoration(labelText: 'Phone'),
+                      decoration: InputDecoration(
+                        labelStyle: const TextStyle(color: Color.fromARGB(255, 84, 26, 125)), 
+                        labelText: 'Phone',
+                        enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                        ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                        ),
+                      ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter a phone number';
@@ -121,15 +161,29 @@ class _AddCloseCircleMemberScreenState
                         return null;
                       },
                     ),
+                    SizedBox(height: 10),
                     DropdownButtonFormField<String>(
                       value: _relationship,
-                      decoration:
-                          const InputDecoration(labelText: 'Relationship'),
+                      decoration: InputDecoration(
+                        labelStyle: const TextStyle(color: Color.fromARGB(255, 84, 26, 125)), 
+                        labelText: 'Relationship',
+                        enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                        ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                        ),
+                      ),
                       items: <String>['Friend', 'Family', 'Other']
                           .map((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
-                          child: Text(value),
+                          child: DefaultTextStyle(
+                            style: TextStyle(color: Color.fromARGB(255, 84, 26, 125)), // Cambia el color aquí
+                            child: Text(value),
+                          ),
                         );
                       }).toList(),
                       onChanged: (newValue) {
@@ -138,10 +192,13 @@ class _AddCloseCircleMemberScreenState
                         });
                       },
                     ),
-                    const SizedBox(height: 16),
+                    const SizedBox(height: 20),
                     ElevatedButton(
                       onPressed: () => _submit(),
                       child: const Text('Add Member'),
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(vertical: 15),
+                      ),
                     ),
                   ],
                 ),
