@@ -64,11 +64,13 @@ class _ChatScreenState extends State<ChatScreen> {
     _controller.clear();
   }
 
-  @override
+  
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Chatbot Name'),
+        title: Text('Chatbot'),
+        backgroundColor: Color.fromARGB(255, 237, 230, 241), 
       ),
       body: Column(
         children: <Widget>[
@@ -77,17 +79,18 @@ class _ChatScreenState extends State<ChatScreen> {
               itemCount: _messages.length,
               itemBuilder: (context, index) {
                 final message = _messages[index];
-                return ListTile(
-                  title: Align(
+                return Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Align(
                     alignment: message['sender'] == 'user'
                         ? Alignment.centerRight
                         : Alignment.centerLeft,
                     child: Container(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(12.0),
                       decoration: BoxDecoration(
                         color: message['sender'] == 'user'
-                            ? Colors.blue
-                            : Colors.grey[300],
+                            ? Colors.purple[200]
+                            : Colors.purple[100],
                         borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Text(
@@ -113,16 +116,33 @@ class _ChatScreenState extends State<ChatScreen> {
                     controller: _controller,
                     decoration: InputDecoration(
                       hintText: 'Escribe tu mensaje...',
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(8.0),
+                        borderSide: BorderSide.none,
+                      ),
                     ),
                   ),
                 ),
-                IconButton(
-                  icon: Icon(Icons.send),
-                  onPressed: () {
-                    if (_controller.text.isNotEmpty) {
-                      _sendMessage(_controller.text);
-                    }
-                  },
+                SizedBox(width: 8.0),
+                ClipOval(
+                  child: Material(
+                    color: Colors.purple[300], // Color del botón de enviar
+                    child: InkWell(
+                      splashColor: Colors.purple[400],
+                      child: SizedBox(
+                        width: 48,
+                        height: 48,
+                        child: Icon(Icons.send, color: Colors.white),
+                      ),
+                      onTap: () {
+                        if (_controller.text.isNotEmpty) {
+                          _sendMessage(_controller.text);
+                        }
+                      },
+                    ),
+                  ),
                 ),
               ],
             ),
