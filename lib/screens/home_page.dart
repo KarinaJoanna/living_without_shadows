@@ -11,6 +11,8 @@ import '../widgets/chat_section.dart';
 import '../widgets/footer_section.dart';
 
 class HomePage extends StatelessWidget {
+  final String userName = 'Profile1'; // Nombre del usuario
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,6 +60,43 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             if (!_isSmallScreen(context)) HeaderSection(),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 40,
+                    backgroundImage: AssetImage('assets/empowering.png'),
+                  ),
+                  SizedBox(width: 16),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Welcome back, $userName!',
+                          style: TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          'We have been waiting for you, take your time to explore and connect.',
+                          style: TextStyle(
+                            fontSize: 18,
+                            color: Colors.grey,
+                          ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
             SizedBox(height: 10),
             QuestionnaireSection(),
             SizedBox(height: 10),

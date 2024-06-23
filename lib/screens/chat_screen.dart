@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class ChatScreen extends StatefulWidget {
   @override
@@ -8,19 +10,59 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   final List<Map<String, String>> _messages = [];
   final TextEditingController _controller = TextEditingController();
+  String _apiKey =
+      "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"; // API Key de OpenAI
 
-  void _sendMessage(String message) {
-    setState(() {
-      _messages.add({'sender': 'user', 'message': message});
-      _messages.add({'sender': 'bot', 'message': _getBotResponse(message)});
-    });
-    _controller.clear();
+  Future<String> _fetchResponse(String prompt) async {
+    final response = await http.post(
+      Uri.parse('https://api.openai.com/v1/completions'),
+      headers: {
+        'Authorization': 'Bearer $_apiKey',
+        'Content-Type': 'application/json',
+      },
+      body: jsonEncode({
+        'model': 'gpt-3.5-turbo',
+        'prompt': prompt,
+        'max_tokens': 200,
+        'temperature': 0,
+        'top_p': 1,
+        'n': 1,
+        'stream': false,
+        'logprobs': null,
+      }),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      return data['choices'][0]['text'].trim();
+    } else if (response.statusCode == 404) {
+      print("Error 404: Recurso no encontrado.");
+      print("Mensaje de error: ${response.body}");
+      throw Exception('Recurso no encontrado');
+    } else {
+      print("Error en la solicitud: ${response.statusCode}");
+      print("Mensaje de error: ${response.body}");
+      throw Exception('Error en la solicitud: ${response.statusCode}');
+    }
   }
 
-  String _getBotResponse(String message) {
-    // Aquí implementar la lógica de respuestas del chatbot
+  void _sendMessage(String message) async {
+    setState(() {
+      _messages.add({'sender': 'user', 'message': message});
+    });
 
-    return "Esta es una respuesta del bot. Tu mensaje fue: $message";
+    try {
+      final botResponse = await _fetchResponse(message);
+      setState(() {
+        _messages.add({'sender': 'bot', 'message': botResponse});
+      });
+    } catch (e) {
+      setState(() {
+        _messages.add({'sender': 'bot', 'message': 'Error: $e'});
+      });
+    }
+
+    _controller.clear();
   }
 
   @override
