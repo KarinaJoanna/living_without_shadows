@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'package:living_without_shadows/screens/chat_screen.dart';
 import 'package:living_without_shadows/screens/questionnaire_screen.dart';
 import 'package:living_without_shadows/widgets/bottom_nav_bar.dart';
 import '../widgets/footer_section.dart';
+import 'package:living_without_shadows/screens/result_page.dart';
 
 class QuestionnaireMain extends StatelessWidget {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final List<TextEditingController> _controllers = List.generate(12, (index) => TextEditingController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,53 +67,56 @@ class QuestionnaireMain extends StatelessWidget {
                 child: Container(
                   width: _getCardWidth(context),
                   padding: EdgeInsets.all(20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Let’s Begin',
-                        style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'With each step we take, know that you\'re not alone. We\'re here to walk beside you, guiding you towards understanding and well-being.',
-                        style: TextStyle(fontSize: 16),
-                      ),
-                      SizedBox(height: 20),
-                      _buildSectionTitle('About you'),
-                      _buildTextField('How Can I Help You?'),
-                      _buildTextField('How Can I Help You?'),
-                      _buildTextField('How Can I Help You?'),
-                      SizedBox(height: 20),
-                      _buildSectionTitle('About your future'),
-                      _buildTextField('How Can I Help You?'),
-                      _buildTextField('How Can I Help You?'),
-                      _buildTextField('How Can I Help You?'),
-                      _buildTextField('How Can I Help You?'),
-                      _buildTextField('How Can I Help You?'),
-                      SizedBox(height: 20),
-                      _buildSectionTitle('About expectations'),
-                      _buildTextField('How Can I Help You?'),
-                      _buildTextField('How Can I Help You?'),
-                      _buildTextField('How Can I Help You?'),
-                      _buildTextField('How Can I Help You?'),
-                      SizedBox(height: 20),
-                      Center(
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          child: Text('Send Answers'),
-                          style: ElevatedButton.styleFrom(
-                            foregroundColor: Colors.white,
-                            backgroundColor: Colors.black,
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 40, vertical: 15),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Let’s Begin',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ),
-                    ],
+                        SizedBox(height: 10),
+                        Text(
+                          'With each step we take, know that you\'re not alone. We\'re here to walk beside you, guiding you towards understanding and well-being.',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                        SizedBox(height: 20),
+                        _buildSectionTitle('About you'),
+                        _buildTextField('How Can I Help You?', _controllers[0]),
+                        _buildTextField('How Can I Help You?', _controllers[1]),
+                        _buildTextField('How Can I Help You?', _controllers[2]),
+                        SizedBox(height: 20),
+                        _buildSectionTitle('About your future'),
+                        _buildTextField('How Can I Help You?', _controllers[3]),
+                        _buildTextField('How Can I Help You?', _controllers[4]),
+                        _buildTextField('How Can I Help You?', _controllers[5]),
+                        _buildTextField('How Can I Help You?', _controllers[6]),
+                        _buildTextField('How Can I Help You?', _controllers[7]),
+                        SizedBox(height: 20),
+                        _buildSectionTitle('About expectations'),
+                        _buildTextField('How Can I Help You?', _controllers[8]),
+                        _buildTextField('How Can I Help You?', _controllers[9]),
+                        _buildTextField('How Can I Help You?', _controllers[10]),
+                        _buildTextField('How Can I Help You?', _controllers[11]),
+                        SizedBox(height: 20),
+                        Center(
+                          child: ElevatedButton(
+                            onPressed: () => _submitForm(context),
+                            child: Text('Send Answers'),
+                            style: ElevatedButton.styleFrom(
+                              foregroundColor: Colors.white,
+                              backgroundColor: Color.fromARGB(255, 112, 0, 193),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 40, vertical: 15),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -145,16 +154,57 @@ class QuestionnaireMain extends StatelessWidget {
     );
   }
 
-  Widget _buildTextField(String hint) {
+  Widget _buildTextField(String hint, TextEditingController controller) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
-      child: TextField(
+      child: TextFormField(
+        controller: controller,
         decoration: InputDecoration(
           border: OutlineInputBorder(),
           hintText: hint,
         ),
+        validator: (value) {
+          if (value == null || value.isEmpty) {
+            return 'Please fill out this field';
+          }
+          return null;
+        },
       ),
     );
+  }
+
+  Future<void> _submitForm(BuildContext context) async {
+    try {
+      if (_formKey.currentState!.validate()) {
+        List<String> responses =
+            _controllers.map((controller) => controller.text).toList();
+
+        final response = await http.post(
+          Uri.parse('http://192.168.1.245:5000/analyze'),
+          headers: <String, String>{
+            'Content-Type': 'application/json; charset=UTF-8',
+          },
+          body: jsonEncode(<String, dynamic>{
+            'responses': responses,
+          }),
+        );
+
+        if (response.statusCode == 200) {
+          final result = jsonDecode(response.body);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => ResultPage(result: result),
+            ),
+          );
+        } else {
+          throw Exception('Failed to analyze responses');
+        }
+      }
+    } catch (e) {
+      print('Error submitting form: $e');
+      // Mostrar mensaje de error al usuario o manejar de otra manera
+    }
   }
 }
 
