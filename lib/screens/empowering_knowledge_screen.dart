@@ -3,7 +3,9 @@ import 'package:living_without_shadows/screens/chat_screen.dart';
 import 'package:living_without_shadows/screens/questionnaire_screen.dart';
 import 'package:living_without_shadows/widgets/bottom_nav_bar.dart';
 import 'package:living_without_shadows/widgets/header_section.dart';
-import '../widgets/footer_section.dart';
+import 'package:living_without_shadows/widgets/footer_section.dart';
+import 'package:living_without_shadows/widgets/youtube_video.dart';
+import 'package:living_without_shadows/widgets/link_preview.dart';
 
 class EmpoweringKnowledgeScreen extends StatelessWidget {
   @override
@@ -78,7 +80,7 @@ class EmpoweringKnowledgeScreen extends StatelessWidget {
                             ),
                           ),
                           SizedBox(height: 10),
-                          Image.asset('assets/qsection.jpg', height: 300),
+                          Image.asset('assets/empowering.png', height: 150),
                         ],
                       ),
                     ),
@@ -143,23 +145,6 @@ class EmpoweringKnowledgeScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    'Statistics on Depression',
-                    style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 10),
-                  Container(
-                    height: 200,
-                    color: Colors.grey[200],
-                    // Aquí podrías usar un paquete de gráficos para mostrar estadísticas
-                    child: Center(
-                      child: Text('Graph showing depression statistics'),
-                    ),
-                  ),
-                  SizedBox(height: 20),
-                  Text(
                     'Watch This Video to Learn More',
                     style: TextStyle(
                       fontSize: 20,
@@ -167,14 +152,7 @@ class EmpoweringKnowledgeScreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10),
-                  Container(
-                    height: 200,
-                    color: Colors.grey[200],
-                    // Aquí podrías incrustar un video usando un paquete como chewie o similar
-                    child: Center(
-                      child: Text('Video player placeholder'),
-                    ),
-                  ),
+                  YoutubeVideo('_5OkC09xP34'),
                   SizedBox(height: 20),
                   Text(
                     'Frequently Asked Questions (FAQs)',

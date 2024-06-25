@@ -67,14 +67,14 @@ class QuestionnaireScreen extends StatelessWidget {
                       Text(
                         'Questionnaire',
                         textAlign: TextAlign.center,
-                            style: TextStyle(
-                              fontSize: 36,
-                              fontWeight: FontWeight.bold,
-                              color: Color.fromARGB(255, 82, 43, 121),
+                        style: TextStyle(
+                          fontSize: 36,
+                          fontWeight: FontWeight.bold,
+                          color: Color.fromARGB(255, 82, 43, 121),
                         ),
                       ),
                       SizedBox(height: 10),
-                      Image.asset('assets/qsection.jpg', height: 300),
+                      Image.asset('assets/qsection.png', height: 300),
                     ],
                   ),
                 ),
@@ -173,25 +173,25 @@ class QuestionnaireScreen extends StatelessWidget {
                       textAlign: TextAlign.left,
                     ),
                     SizedBox(height: 20),
-                   Center(
-  child: ElevatedButton(
-    onPressed: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => QuestionnaireMain(),
-        ),
-      );
-    },
-    child: Text('Start'),
-    style: ElevatedButton.styleFrom(
-      foregroundColor: Colors.white,
-      backgroundColor: Color.fromARGB(255, 112, 0, 193),
-      padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
-    ),
-  ),
-)
-
+                    Center(
+                      child: ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => QuestionnaireMain(),
+                            ),
+                          );
+                        },
+                        child: Text('Start'),
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor: Color.fromARGB(255, 112, 0, 193),
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 40, vertical: 15),
+                        ),
+                      ),
+                    )
                   ],
                 ),
               ),
@@ -219,6 +219,7 @@ class QuestionnaireScreen extends StatelessWidget {
     }
   }
 }
+
 class DrawerMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

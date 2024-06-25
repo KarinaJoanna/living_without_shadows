@@ -39,6 +39,7 @@ dependencies:
   fluttertoast: ^8.2.6
   url_launcher: ^6.3.0
   sqflite: ^2.3.3+1
+  youtube_player_flutter: ^8.0.0
 
 dev_dependencies:
   flutter_test:
@@ -52,7 +53,7 @@ dev_dependencies:
   flutter_lints: ^3.0.0
 
 # For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
+# following page: https://dart.dev/tools/pub/pubspecw
 
 # The following section is specific to Flutter packages.
 flutter:
@@ -70,7 +71,14 @@ flutter:
     - assets/questionnarie.png
     - assets/talk1.png 
     - assets/empowering.png
-    - assets/qsection.jpg
+    - assets/qsection.png
+    - assets/joy_depression.png
+    - assets/depression_friendship.png
+    - assets/depressive_episode.png
+    - assets/mental_health_education.png
+    - assets/t_about_d.png
+    - assets/profile.JPG
+    - assets/results.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

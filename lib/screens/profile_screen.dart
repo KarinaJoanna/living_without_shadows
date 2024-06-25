@@ -44,7 +44,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 children: <Widget>[
                   CircleAvatar(
                     radius: 50,
-                    backgroundImage: AssetImage('assets/empowering.png'),
+                    backgroundImage: AssetImage('assets/profile.JPG'),
                   ),
                   const SizedBox(height: 16),
                   const Text(
@@ -69,7 +69,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Card(
               margin: const EdgeInsets.symmetric(vertical: 8),
               child: ListTile(
-                leading: Icon(Icons.person, color: const Color.fromARGB(255, 115, 45, 148)),
+                leading: Icon(Icons.person,
+                    color: const Color.fromARGB(255, 115, 45, 148)),
                 title: Text('Username'),
                 subtitle: Text('Profile1'),
               ),
@@ -77,7 +78,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Card(
               margin: const EdgeInsets.symmetric(vertical: 8),
               child: ListTile(
-                leading: Icon(Icons.email, color:Color.fromARGB(255, 115, 45, 148)),
+                leading:
+                    Icon(Icons.email, color: Color.fromARGB(255, 115, 45, 148)),
                 title: Text('Email'),
                 subtitle: Text('Profile1@example.com'),
               ),
@@ -85,7 +87,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Card(
               margin: const EdgeInsets.symmetric(vertical: 8),
               child: ListTile(
-                leading: Icon(Icons.phone, color:Color.fromARGB(255, 115, 45, 148)),
+                leading:
+                    Icon(Icons.phone, color: Color.fromARGB(255, 115, 45, 148)),
                 title: Text('Phone'),
                 subtitle: Text('+1 234 567 890'),
               ),
@@ -93,7 +96,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Card(
               margin: const EdgeInsets.symmetric(vertical: 8),
               child: ListTile(
-                leading: Icon(Icons.location_on, color:Color.fromARGB(255, 115, 45, 148)),
+                leading: Icon(Icons.location_on,
+                    color: Color.fromARGB(255, 115, 45, 148)),
                 title: Text('Address'),
                 subtitle: Text('123'),
               ),
@@ -110,7 +114,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               icon: Icon(Icons.edit),
               label: const Text('Edit Profile'),
               style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
@@ -141,7 +146,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
               icon: Icon(Icons.add),
               label: const Text('Add Close Circle Member'),
               style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),

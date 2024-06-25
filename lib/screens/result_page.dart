@@ -87,7 +87,7 @@ class ResultPage extends StatelessWidget {
               ),
               SizedBox(height: 20),
               Image.asset(
-                'assets/qsection.jpg',
+                'assets/results.png',
                 height: 300,
                 fit: BoxFit.cover,
               ),
@@ -120,7 +120,8 @@ class ResultPage extends StatelessWidget {
                   children: [
                     Text(
                       'Label: ${res['label']}',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 5),
                     Text(
@@ -151,7 +152,9 @@ class ResultPage extends StatelessWidget {
                     SizedBox(height: 20),
                     Center(
                       child: Image.asset(
-                        isNegative ? 'assets/depression_image.jpg' : 'assets/healthy_image.jpg',
+                        isNegative
+                            ? 'assets/depression_image.jpg'
+                            : 'assets/healthy_image.jpg',
                         height: 200,
                         fit: BoxFit.cover,
                       ),
@@ -247,7 +250,10 @@ class ResultPage extends StatelessWidget {
     ];
   }
 
-  Widget _buildInfoCard(BuildContext context, {required String title, required String description, required String imagePath}) {
+  Widget _buildInfoCard(BuildContext context,
+      {required String title,
+      required String description,
+      required String imagePath}) {
     return Card(
       margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
       shape: RoundedRectangleBorder(
