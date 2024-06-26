@@ -79,6 +79,8 @@ flutter:
     - assets/t_about_d.png
     - assets/profile.JPG
     - assets/results.png
+    - assets/icon.png
+    - assets/soothen.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

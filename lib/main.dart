@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:living_without_shadows/screens/chat_screen.dart';
 import 'package:living_without_shadows/screens/profile_screen.dart';
+import 'package:living_without_shadows/screens/chat.dart'; // Importa ChatPage
 import 'screens/home_page.dart';
 
 void main() {
@@ -20,7 +21,9 @@ class LivingWithoutShadowsApp extends StatelessWidget {
       home: HomePage(),
       routes: {
         '/home': (context) => HomePage(),
-        '/chat': (context) => ChatScreen(),
+        ChatScreen.routeName: (context) => ChatScreen(),
+        ChatPage.routeName: (context) =>
+            ChatPage(), // Añade la ruta para ChatPage
         '/profile': (context) => ProfileScreen(),
       },
     );

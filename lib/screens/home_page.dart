@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:living_without_shadows/screens/chat_screen.dart';
+import 'package:living_without_shadows/screens/profile_screen.dart';
 import 'package:living_without_shadows/screens/questionnaire_screen.dart';
 import 'package:living_without_shadows/widgets/bottom_nav_bar.dart';
 import '../widgets/header_section.dart';
@@ -157,28 +158,40 @@ class DrawerMenu extends StatelessWidget {
             leading: Icon(Icons.home),
             title: Text('Home'),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomePage()),
+              );
             },
           ),
           ListTile(
             leading: Icon(Icons.question_answer),
             title: Text('Questionnaire'),
             onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.info),
-            title: Text('Information'),
-            onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => QuestionnaireScreen()),
+              );
             },
           ),
           ListTile(
             leading: Icon(Icons.chat),
             title: Text('Let\'s Chat'),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ChatScreen()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.person),
+            title: Text('Profile'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfileScreen()),
+              );
             },
           ),
         ],

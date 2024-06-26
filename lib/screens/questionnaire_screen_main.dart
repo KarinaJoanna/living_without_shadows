@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:living_without_shadows/screens/chat_screen.dart';
+import 'package:living_without_shadows/screens/home_page.dart';
+import 'package:living_without_shadows/screens/profile_screen.dart';
 import 'package:living_without_shadows/screens/questionnaire_screen.dart';
 import 'package:living_without_shadows/widgets/bottom_nav_bar.dart';
 import '../widgets/footer_section.dart';
@@ -9,7 +11,8 @@ import 'package:living_without_shadows/screens/result_page.dart';
 
 class QuestionnaireMain extends StatelessWidget {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final List<TextEditingController> _controllers = List.generate(12, (index) => TextEditingController());
+  final List<TextEditingController> _controllers =
+      List.generate(12, (index) => TextEditingController());
 
   @override
   Widget build(BuildContext context) {
@@ -86,19 +89,36 @@ class QuestionnaireMain extends StatelessWidget {
                         ),
                         SizedBox(height: 20),
                         _buildSectionTitle('About you'),
-                        _buildTextField('Have your mood or energy levels changed recently?', _controllers[0]),
-                        _buildTextField('What emotions do you feel most days?', _controllers[1]),
-                        _buildTextField('Is it hard to find motivation or interest in things you used to enjoy?', _controllers[2]),
+                        _buildTextField(
+                            'Have your mood or energy levels changed recently?',
+                            _controllers[0]),
+                        _buildTextField('What emotions do you feel most days?',
+                            _controllers[1]),
+                        _buildTextField(
+                            'Is it hard to find motivation or interest in things you used to enjoy?',
+                            _controllers[2]),
                         SizedBox(height: 20),
                         _buildSectionTitle('About your future'),
-                        _buildTextField('How do you feel about not knowing what will happen in the future?', _controllers[3]),
-                        _buildTextField('How do you feel about your achievements and goals so far?', _controllers[4]),
-                        _buildTextField('How do you feel when you imagine your dreams for the future?', _controllers[5]),
+                        _buildTextField(
+                            'How do you feel about not knowing what will happen in the future?',
+                            _controllers[3]),
+                        _buildTextField(
+                            'How do you feel about your achievements and goals so far?',
+                            _controllers[4]),
+                        _buildTextField(
+                            'How do you feel when you imagine your dreams for the future?',
+                            _controllers[5]),
                         SizedBox(height: 20),
                         _buildSectionTitle('About expectations'),
-                        _buildTextField('How do you feel about the pressure to be successful?', _controllers[6]),
-                        _buildTextField('How do you feel when you challenge stereotypes or prejudices?', _controllers[7]),
-                        _buildTextField('How do you feel when you do not meet your own expectations?', _controllers[8]),
+                        _buildTextField(
+                            'How do you feel about the pressure to be successful?',
+                            _controllers[6]),
+                        _buildTextField(
+                            'How do you feel when you challenge stereotypes or prejudices?',
+                            _controllers[7]),
+                        _buildTextField(
+                            'How do you feel when you do not meet your own expectations?',
+                            _controllers[8]),
                         SizedBox(height: 20),
                         Center(
                           child: ElevatedButton(
@@ -228,28 +248,40 @@ class DrawerMenu extends StatelessWidget {
             leading: Icon(Icons.home),
             title: Text('Home'),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomePage()),
+              );
             },
           ),
           ListTile(
             leading: Icon(Icons.question_answer),
             title: Text('Questionnaire'),
             onTap: () {
-              Navigator.pop(context);
-            },
-          ),
-          ListTile(
-            leading: Icon(Icons.info),
-            title: Text('Information'),
-            onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => QuestionnaireScreen()),
+              );
             },
           ),
           ListTile(
             leading: Icon(Icons.chat),
             title: Text('Let\'s Chat'),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ChatScreen()),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.person),
+            title: Text('Profile'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfileScreen()),
+              );
             },
           ),
         ],
