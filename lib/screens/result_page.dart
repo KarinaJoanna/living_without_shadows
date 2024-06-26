@@ -182,7 +182,7 @@ class ResultPage extends StatelessWidget {
         title: '5 Ways To Find Joy When You Are Depressed',
         description:
             'When you\'re in a depressive episode, it can feel as if depression has sucked the joy out of everything. So, in this blog post, we share 5 things you can do to find some of that missing joy when you feel depressed.',
-        imagePath: 'assets/joy_depression.jpg',
+        imagePath: 'assets/joy_depression.png',
       ),
       SizedBox(height: 20),
       _buildInfoCard(
@@ -190,7 +190,7 @@ class ResultPage extends StatelessWidget {
         title: 'What Depression Looks Like In A Friendship',
         description:
             'In this blog post, we explain some of the most common ways that depression can affect people\'s friendships.',
-        imagePath: 'assets/depression_friendship.jpg',
+        imagePath: 'assets/depression_friendship.png',
       ),
       SizedBox(height: 20),
       _buildInfoCard(
@@ -198,7 +198,7 @@ class ResultPage extends StatelessWidget {
         title: 'How To Survive A Depressive Episode',
         description:
             'In this blog post, we\'ll explain exactly what you need to do to survive a depressive episode.',
-        imagePath: 'assets/depressive_episode.jpg',
+        imagePath: 'assets/depressive_episode.png',
       ),
       SizedBox(height: 20),
       _buildInfoCard(
@@ -206,7 +206,7 @@ class ResultPage extends StatelessWidget {
         title: 'Depression’s Vicious Cycle & The 5 Factors That Fuel It',
         description:
             'In this blog post, you’ll learn about depression’s vicious cycle, the five factors that fuel it, and what you need to do in order to break out of it.',
-        imagePath: 'assets/mental_health_education.jpg',
+        imagePath: 'assets/mental_health_education.png',
       ),
       SizedBox(height: 20),
     ];
@@ -220,7 +220,7 @@ class ResultPage extends StatelessWidget {
         title: '10 Tips for Maintaining Mental Health',
         description:
             'Learn about 10 practical tips that can help you maintain your mental health and well-being in your daily life.',
-        imagePath: 'assets/mentalhealth.jpg',
+        imagePath: 'assets/mentalhealth.png',
       ),
       SizedBox(height: 20),
       _buildInfoCard(
@@ -228,7 +228,7 @@ class ResultPage extends StatelessWidget {
         title: 'Building Strong Relationships for Mental Well-being',
         description:
             'Discover how building strong and healthy relationships can positively impact your mental well-being.',
-        imagePath: 'assets/relationships.webp',
+        imagePath: 'assets/relationships.png',
       ),
       SizedBox(height: 20),
       _buildInfoCard(
@@ -236,7 +236,7 @@ class ResultPage extends StatelessWidget {
         title: 'The Importance of Physical Activity for Mental Health',
         description:
             'In this article, we explore the connection between physical activity and mental health, and how staying active can boost your mood.',
-        imagePath: 'assets/physical_activity.jpg',
+        imagePath: 'assets/physical_activity.png',
       ),
       SizedBox(height: 20),
       _buildInfoCard(

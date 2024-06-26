@@ -81,6 +81,10 @@ flutter:
     - assets/results.png
     - assets/icon.png
     - assets/soothen.png
+    - assets/mindfulness.png
+    - assets/relationships.png
+    - assets/physical_activity.png
+    - assets/mentalhealth.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
