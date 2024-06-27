@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:living_without_shadows/screens/chat_screen.dart';
+import 'package:living_without_shadows/screens/depression_cycle_screen.dart';
+import 'package:living_without_shadows/screens/depression_friendship_screen.dart';
+import 'package:living_without_shadows/screens/depressive_episode_screen.dart';
 import 'package:living_without_shadows/screens/home_page.dart';
 import 'package:living_without_shadows/screens/profile_screen.dart';
 import 'package:living_without_shadows/screens/questionnaire_screen.dart';
+import 'package:living_without_shadows/screens/ways_to_find_joy_screen.dart';
 import 'package:living_without_shadows/widgets/bottom_nav_bar.dart';
 import 'package:living_without_shadows/widgets/header_section.dart';
-import '../widgets/footer_section.dart';
+import 'package:living_without_shadows/widgets/footer_section.dart';
 
 class TalkAboutDepressionScreen extends StatelessWidget {
   @override
@@ -102,6 +106,12 @@ class TalkAboutDepressionScreen extends StatelessWidget {
               imagePath: 'assets/joy_depression.png',
               imageHeight: 200,
               imageWidth: double.infinity,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => FindJoyScreen()),
+                );
+              },
             ),
             SizedBox(height: 10),
             _buildInfoCard(
@@ -112,6 +122,13 @@ class TalkAboutDepressionScreen extends StatelessWidget {
               imagePath: 'assets/depression_friendship.png',
               imageHeight: 200,
               imageWidth: double.infinity,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DepressionInFriendshipScreen()),
+                );
+              },
             ),
             SizedBox(height: 10),
             _buildInfoCard(
@@ -122,6 +139,13 @@ class TalkAboutDepressionScreen extends StatelessWidget {
               imagePath: 'assets/depressive_episode.png',
               imageHeight: 200,
               imageWidth: double.infinity,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DepressionEpisodeScreen()),
+                );
+              },
             ),
             SizedBox(height: 10),
             _buildInfoCard(
@@ -132,6 +156,13 @@ class TalkAboutDepressionScreen extends StatelessWidget {
               imagePath: 'assets/mental_health_education.png',
               imageHeight: 200,
               imageWidth: double.infinity,
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DepressionCycleScreen()),
+                );
+              },
             ),
             SizedBox(height: 10),
             FooterSection(),
@@ -147,41 +178,45 @@ class TalkAboutDepressionScreen extends StatelessWidget {
       required String description,
       required String imagePath,
       required double imageHeight,
-      required double imageWidth}) {
-    return Card(
-      margin: EdgeInsets.all(20),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Container(
-        width: _getCardWidth(context),
-        padding: EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
+      required double imageWidth,
+      required Function() onTap}) {
+    return InkWell(
+      onTap: onTap,
+      child: Card(
+        margin: EdgeInsets.all(20),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: Container(
+          width: _getCardWidth(context),
+          padding: EdgeInsets.all(20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                ),
               ),
-            ),
-            SizedBox(height: 10),
-            Image.asset(
-              imagePath,
-              height: imageHeight,
-              width: imageWidth,
-              fit: BoxFit
-                  .cover, // Adjust the image to cover the given width and height
-            ),
-            SizedBox(height: 10),
-            Text(
-              description,
-              style: TextStyle(fontSize: 16),
-              textAlign: TextAlign.left,
-            ),
-          ],
+              SizedBox(height: 10),
+              Image.asset(
+                imagePath,
+                height: imageHeight,
+                width: imageWidth,
+                fit: BoxFit
+                    .cover, // Adjust the image to cover the given width and height
+              ),
+              SizedBox(height: 10),
+              Text(
+                description,
+                style: TextStyle(fontSize: 16),
+                textAlign: TextAlign.left,
+              ),
+            ],
+          ),
         ),
       ),
     );
