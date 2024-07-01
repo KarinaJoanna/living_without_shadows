@@ -197,7 +197,7 @@ class QuestionnaireMain extends StatelessWidget {
             _controllers.map((controller) => controller.text).toList();
 
         final response = await http.post(
-          Uri.parse('http://192.168.1.245:5000/analyze'),
+          Uri.parse('http://192.168.22.164:5000/analyze'),
           headers: <String, String>{
             'Content-Type': 'application/json; charset=UTF-8',
           },

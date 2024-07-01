@@ -119,13 +119,13 @@ class ResultPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Label: ${res['label']}',
+                      'Classification: ${res['label']}',
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 5),
                     Text(
-                      'Score: ${res['score']}',
+                      'Estimation in percentages: ${res['score']}',
                       style: TextStyle(fontSize: 18, color: Colors.grey[600]),
                     ),
                     SizedBox(height: 10),
@@ -150,15 +150,15 @@ class ResultPage extends StatelessWidget {
                       ],
                     ),
                     SizedBox(height: 20),
-                    Center(
-                      child: Image.asset(
-                        isNegative
-                            ? 'assets/depression_image.jpg'
-                            : 'assets/healthy_image.jpg',
-                        height: 200,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
+                    //Center(
+                    //child: Image.asset(
+                    //isNegative
+                    //  ? 'assets/depression_image.jpg'
+                    //  : 'assets/healthy_image.jpg',
+                    // height: 200,
+                    //fit: BoxFit.cover,
+                    //),
+                    //),
                     SizedBox(height: 20),
                     if (isNegative)
                       ..._buildNegativeInfoCards(context)

@@ -121,77 +121,27 @@ class DepressionCycleScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoCard(BuildContext context,
-      {required String title,
-      required String description,
-      required String imagePath,
-      required double imageHeight,
-      required double imageWidth}) {
-    return Card(
-      margin: EdgeInsets.all(20),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Container(
-        width: _getCardWidth(context),
-        padding: EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
-              ),
-            ),
-            SizedBox(height: 10),
-            Image.asset(
-              imagePath,
-              height: imageHeight,
-              width: imageWidth,
-              fit: BoxFit.cover,
-            ),
-            SizedBox(height: 10),
-            Text(
-              description,
-              style: TextStyle(fontSize: 16),
-              textAlign: TextAlign.left,
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   Widget _buildContentMethod({required String title, required String content}) {
-    return Card(
-      margin: EdgeInsets.all(20),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: Container(
-        padding: EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
-              ),
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.bold,
+              color: Colors.black87,
             ),
-            SizedBox(height: 10),
-            Text(
-              content,
-              style: TextStyle(fontSize: 16),
-              textAlign: TextAlign.left,
-            ),
-          ],
-        ),
+          ),
+          SizedBox(height: 10),
+          Text(
+            content,
+            style: TextStyle(fontSize: 16),
+            textAlign: TextAlign.left,
+          ),
+        ],
       ),
     );
   }

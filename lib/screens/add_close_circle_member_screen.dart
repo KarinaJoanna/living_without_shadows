@@ -99,15 +99,18 @@ class _AddCloseCircleMemberScreenState
                     TextFormField(
                       controller: _nameController,
                       decoration: InputDecoration(
-                        labelStyle: const TextStyle(color: Color.fromARGB(255, 84, 26, 125)), 
+                        labelStyle: const TextStyle(
+                            color: Color.fromARGB(255, 84, 26, 125)),
                         labelText: 'Name',
                         enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 84, 26, 125)),
                         ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 84, 26, 125)),
                         ),
                       ),
                       validator: (value) {
@@ -121,15 +124,18 @@ class _AddCloseCircleMemberScreenState
                     TextFormField(
                       controller: _emailController,
                       decoration: InputDecoration(
-                        labelStyle: const TextStyle(color: Color.fromARGB(255, 84, 26, 125)), 
+                        labelStyle: const TextStyle(
+                            color: Color.fromARGB(255, 84, 26, 125)),
                         labelText: 'Email',
                         enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 84, 26, 125)),
                         ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 84, 26, 125)),
                         ),
                       ),
                       validator: (value) {
@@ -143,15 +149,18 @@ class _AddCloseCircleMemberScreenState
                     TextFormField(
                       controller: _phoneController,
                       decoration: InputDecoration(
-                        labelStyle: const TextStyle(color: Color.fromARGB(255, 84, 26, 125)), 
+                        labelStyle: const TextStyle(
+                            color: Color.fromARGB(255, 84, 26, 125)),
                         labelText: 'Phone',
                         enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 84, 26, 125)),
                         ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 84, 26, 125)),
                         ),
                       ),
                       validator: (value) {
@@ -165,15 +174,18 @@ class _AddCloseCircleMemberScreenState
                     DropdownButtonFormField<String>(
                       value: _relationship,
                       decoration: InputDecoration(
-                        labelStyle: const TextStyle(color: Color.fromARGB(255, 84, 26, 125)), 
+                        labelStyle: const TextStyle(
+                            color: Color.fromARGB(255, 84, 26, 125)),
                         labelText: 'Relationship',
                         enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 84, 26, 125)),
                         ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8),
-                        borderSide: const BorderSide(color: Color.fromARGB(255, 84, 26, 125)),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(8),
+                          borderSide: const BorderSide(
+                              color: Color.fromARGB(255, 84, 26, 125)),
                         ),
                       ),
                       items: <String>['Friend', 'Family', 'Other']
@@ -181,7 +193,9 @@ class _AddCloseCircleMemberScreenState
                         return DropdownMenuItem<String>(
                           value: value,
                           child: DefaultTextStyle(
-                            style: TextStyle(color: Color.fromARGB(255, 84, 26, 125)), // Cambia el color aquí
+                            style: TextStyle(
+                                color: Color.fromARGB(
+                                    255, 84, 26, 125)), // Cambia el color aquí
                             child: Text(value),
                           ),
                         );
